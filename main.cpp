@@ -35,47 +35,39 @@ int mouseclick(int x, int y)
     SetCursorPos(x, y);
     input.mi.dx = 0;            //x
     input.mi.dy = 0;            //y
-    input.mi.mouseData = -0;     //up&down
+    //input.mi.mouseData = -0;     //up&down
     input.mi.dwExtraInfo = 0; 
     input.mi.time = 0;
     SendInput(1, &input, sizeof(INPUT));
     return 0;
 }
 
+
 int main()
 {
-    get_position();
-    char chose;
+    //get_position();
     int i;
-AS:
-    cout << "Start enter '1'" << endl;
-    cout << "Dont start ener '2'" << endl;
-    cout << "Please enter '1' or '2' :";
-    cin >> chose;
-    if (chose == '1')
+    for (i = 1; i < 60; i++)
     {
-        for (i = 1; i < 60; i++)
-        {
-            cout << "start" << i;
-            mouseclick(1702, 873);//µÍ
-            mouseclick(66, 639);    //A
-            mouseclick(1622, 844);//·¢
-            mouseclick(1683, 137);//next
-            mouseclick(899, 501);//yes
-            mouseclick(1683, 137);//next
-            Sleep(1); 
-            //get_position();
-            return 0;
-        }
-    }
-    else if (chose == '2')
-    {
-        cout << "Don't start\n";
+        cout << "start" << i;
+        mouseclick(1702, 832);//µÍ1/2
+        mouseclick(1702, 832);//µÍ3/4
+        mouseclick(1702, 832);//µÍ1
+        mouseclick(1702, 832);//µÍ1
+        mouseclick(1702, 832);//µÍ1
+        mouseclick(1702, 832);//µÍ1
+        mouseclick(66, 639);    //A
+        //mouseclick(37, 685);//ÆÀÓï
+        //keybd_event('A', (BYTE)0, 0, 0);
+        //keybd_event('A', (BYTE)0, KEYEVENTF_KEYUP, 0);
+        mouseclick(1622, 844);//·¢
+        mouseclick(1683, 137);//next
+        mouseclick(899, 501);//yes
+        mouseclick(899, 501);//yes
+        //mouseclick(1683, 137);//next
+        Sleep(1);
+        //get_position();
         return 0;
-    }
-    else
-    {
-        goto AS;
     }
 }
 //×ø±ê66,639-->A
