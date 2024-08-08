@@ -26,7 +26,7 @@ void get_position()
     }
 }
 
-int mouseclick(int x, int y)
+int mouseclickxy(int x, int y)
 {
   //input
     INPUT input;
@@ -35,41 +35,43 @@ int mouseclick(int x, int y)
     SetCursorPos(x, y);
     input.mi.dx = 0;            //x
     input.mi.dy = 0;            //y
-    //input.mi.mouseData = -0;     //up&down
+    input.mi.mouseData = 0;     //up&down
     input.mi.dwExtraInfo = 0; 
     input.mi.time = 0;
     SendInput(1, &input, sizeof(INPUT));
     return 0;
 }
 
-
 int main()
 {
-    //get_position();
-    int i;
-    for (i = 1; i < 60; i++)
+    int a;
+
+    for (a=1;a<15;a++)
     {
-        cout << "start" << i;
-        mouseclick(1702, 832);//µÕ1/2
-        mouseclick(1702, 832);//µÕ3/4
-        mouseclick(1702, 832);//µÕ1
-        mouseclick(1702, 832);//µÕ1
-        mouseclick(1702, 832);//µÕ1
-        mouseclick(1702, 832);//µÕ1
-        mouseclick(66, 639);    //A
-        //mouseclick(37, 685);//∆¿”Ô
-        //keybd_event('A', (BYTE)0, 0, 0);
-        //keybd_event('A', (BYTE)0, KEYEVENTF_KEYUP, 0);
-        mouseclick(1622, 844);//∑¢
-        mouseclick(1683, 137);//next
-        mouseclick(899, 501);//yes
-        mouseclick(899, 501);//yes
-        //mouseclick(1683, 137);//next
-        Sleep(1);
-        //get_position();
-        return 0;
+        keybd_event(VK_LBUTTON, (BYTE)0, 0, 0);
+        mouseclickxy(1703, 836);//µÕ1/2
+        keybd_event(VK_LBUTTON, (BYTE)0, KEYEVENTF_KEYUP, 0);
+
+
+        mouseclickxy(66, 639);    //A
+
+        mouseclickxy(1622, 844);//∑¢
+        Sleep(20);
+        mouseclickxy(1683, 137);//next
+
+        mouseclickxy(899, 501);//yes
     }
+    return 0;
 }
 //◊¯±Í66,639-->A
 //1636,846-->∑¢≤º∆¿”Ô
 //672,135-->œ¬“ª∏ˆ
+//mouseclick(1702, 832);//µÕ1
+        //mouseclick(66, 639);    //A
+        //mouseclick(37, 685);//∆¿”Ô
+       // keybd_event('A', (BYTE)0, 0, 0);
+        //keybd_event('A', (BYTE)0, KEYEVENTF_KEYUP, 0);
+        //mouseclick(37, 685);//∆¿”Ô
+//mouseclick(899, 501,-900);//yes
+        //mouseclick(1683, 137);//next
+ //get_position();
