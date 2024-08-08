@@ -57,12 +57,12 @@ AS:
         for (i = 1; i < 60; i++)
         {
             cout << "start" << i;
-            mouseclick(1702, 873);
-            mouseclick(66, 639);
-            mouseclick(1622, 844);
-            mouseclick(1683, 137);
-            mouseclick(899, 501);
-            mouseclick(1683, 137);
+            mouseclick(1702, 873);//µÍ
+            mouseclick(66, 639);    //A
+            mouseclick(1622, 844);//·¢
+            mouseclick(1683, 137);//next
+            mouseclick(899, 501);//yes
+            mouseclick(1683, 137);//next
             Sleep(1); 
             //get_position();
             return 0;
